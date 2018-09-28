@@ -1,0 +1,11 @@
+taxotools 0.0.4
+===============
+
+New Features
+
+* BuildCSList returns all fields in place of just Primary and Secondary
+
+taxotools 0.0.3
+===============
+
+* released to CRAN
