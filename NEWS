@@ -1,9 +1,10 @@
-taxotools 0.0.4
+taxotools 0.0.5
 ===============
 
 New Features
 
 * BuildCSList returns all fields in place of just Primary and Secondary
+* ExpandSyn can expand using previous names in the synonym list
 
 taxotools 0.0.3
 ===============
