@@ -1,6 +1,6 @@
-ceb2a5f819aa5bb1abb601e114a71fb2 *DESCRIPTION
-0cf922268b12fb57acbc651f1eee5759 *NAMESPACE
-d21e7be76e7c0551cfb118921dc6e1d3 *NEWS
+e2cb120dc12b39b6f39df6e77eaa22dc *DESCRIPTION
+e15a9fbe5fdc643c8b2e5fed6f913bb2 *NAMESPACE
+d62f56553fd802594ca0eaea425107a7 *NEWS
 a655b2daefaddbeb4dcccef5375f2968 *R/BuildCSList.R
 df8eb290094878090e7c2639c44f8caa *R/CheckScientificName.R
 5a9fe5f752fc6ed114f8b2bcacd986cc *R/ExpandSyn.R
@@ -8,7 +8,8 @@ df8eb290094878090e7c2639c44f8caa *R/CheckScientificName.R
 b96edace32bcf2f2f6039fa2132f065a *R/GetWikiSyn.R
 a4374763dfad078700f471256c9583ff *R/GuessTaxoLevel.R
 841babdd216a6ffd2835ed08d6cc86ec *R/ListITISSyn.R
-ecca099a4057febc7667268b5798df23 *R/MakeCanonical.R
+2989d6a8efd615cf8775763e39700ab4 *R/MakeCanonical.R
+d9a11734da9366e9189d404a187f8bc8 *R/MatchLists.R
 01c095b106f8986f50697bd9727f5c15 *R/taxotools.R
 58794fe3f5d0d0b8fd074b1b2c48faa5 *README.md
 1a959d21f0eafc213fcf8ef4675feb12 *man/BuildCSList.Rd
@@ -19,4 +20,5 @@ b23b0cd9639cf6659ac71ca169776a0b *man/GetWikiSyn.Rd
 4038b83fad1542f4d709b97594e5a7be *man/GuessTaxoLevel.Rd
 5cbc16a3924cece187606a1bb1a42d49 *man/ListITISSyn.Rd
 4cb8de4712db22108a57fcc48dffa7f4 *man/MakeCanonical.Rd
+8c0b8acb2937ed4ec8d062e795146649 *man/MatchLists.Rd
 a2e3745fb0beb1eefd849e5c3a28b7f5 *man/taxotools.Rd
