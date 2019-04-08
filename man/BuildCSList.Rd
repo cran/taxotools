@@ -23,6 +23,9 @@ a data frame with two fields Primary and secondary (comma
 separated list)
 }
 \description{
+This function is depreciated. Please use \link{cast_cs_field}
+}
+\details{
 Builds a comma separated list given a data frame with two fiends, primary
 repeating values and secondary values to be summarized with comma separated
 in the same field
@@ -35,4 +38,10 @@ BuildCSList(SynList,"Name","Syn")
 }
 
 }
-\concept{List functions}
+\seealso{
+Other Discontinued functions: \code{\link{CheckScientificName}},
+  \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
+  \code{\link{GuessTaxoLevel}},
+  \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
+}
+\concept{Discontinued functions}

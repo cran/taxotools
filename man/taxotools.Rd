@@ -11,31 +11,46 @@ Some tools to work with lists taxonomic names.
 \section{List functions}{
 
 \itemize{
-\item \link{BuildCSList}
+\item \link{cast_cs_field}
+\item \link{match_lists}
 }
 }
 
 \section{Name functions}{
 
 \itemize{
-\item \link{ExpandSyn}
-\item \link{CheckScientificName}
-\item \link{GuessTaxoLevel}
-\item \link{MakeCanonical}
+\item \link{expand_name}
+\item \link{check_scientific}
+\item \link{guess_taxo_level}
+\item \link{make_canonical}
 }
 }
 
 \section{ITIS functions}{
 
 \itemize{
-\item \link{GetITISSyn}
+\item \link{get_itis_syn}
+#'\item \link{list_itis_syn}
 }
 }
 
 \section{Wiki functions}{
 
 \itemize{
+\item \link{list_wiki_syn}
+}
+
+#'@section Discontinued functions:
+\itemize{
+\item \link{MatchLists}
+\item \link{BuildCSList}
+\item \link{ExpandSyn}
+\item \link{CheckScientificName}
+\item \link{GuessTaxoLevel}
+\item \link{MakeCanonical}
 \item \link{GetWikiSyn}
+\item \link{GetITISSyn}
+\item \link{ListITISSyn}
 }
 }
 

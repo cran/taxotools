@@ -1,15 +1,20 @@
 #' Expands Scientific name is the genus is used with '.'
+#'
+#' This function is depreciated. Please use \link{expand_name}
+#'
 #' @param name scientific name
 #' @param syn synonym with short form genus name to expand the Genus
 #' @return Synonym with Genus expanded using either name or previous names in
 #' the syn list
-#' @family Name functions
+#' @family Discontinued functions
 #' @examples
+#' \dontrun{
 #' ExpandSyn("Addax gibbosa", "A. mytilopes")
 #' ExpandSyn("Oryx addax", "O. nasomaculatus")
-#'
+#' }
 #' @export
 ExpandSyn <- function(name,syn){
+  .Deprecated("expand_name")
   for(i in 1:length(syn)){
     if(substr(syn[i],2,2)=='.'){
       if(substr(syn[i],1,1)==substr(name,1,1)){

@@ -13,16 +13,19 @@ GuessTaxoLevel(name)
 Guess on level of Taxon name and NULL if not sure
 }
 \description{
-Guess the level of Scientific Name
+#' This function is depreciated. Please use \link{match_lists}
 }
 \examples{
+\dontrun{
 GuessTaxoLevel("Akodon longipilis")
 GuessTaxoLevel("Akodon")
 GuessTaxoLevel("Abrocoma cinerea shistacea")
-
+}
 }
 \seealso{
-Other Name functions: \code{\link{CheckScientificName}},
-  \code{\link{ExpandSyn}}
+Other Discontinued functions: \code{\link{BuildCSList}},
+  \code{\link{CheckScientificName}},
+  \code{\link{ExpandSyn}}, \code{\link{GetWikiSyn}},
+  \code{\link{MakeCanonical}}, \code{\link{MatchLists}}
 }
-\concept{Name functions}
+\concept{Discontinued functions}

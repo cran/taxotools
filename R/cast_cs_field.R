@@ -1,10 +1,8 @@
-#' Build a comma separated List
+#' Build a character (comma) separated List within field
 #'
-#' This function is depreciated. Please use \link{cast_cs_field}
-#'
-#' Builds a comma separated list given a data frame with two fiends, primary
-#' repeating values and secondary values to be summarized with comma separated
-#' in the same field
+#' Builds a character (comma) separated list within a field given a data frame
+#' with primary field repeating values and secondary field with values to be
+#' character separated in the same field (secondary)
 #'
 #' @param data data frame containing primary and secondary data columns
 #' @param pri Primary field name (repeating values)
@@ -16,14 +14,13 @@
 #' separated list)
 #' @examples \dontrun{
 #'scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-#'SynList <- GetITISSyn(scnames)
-#'BuildCSList(SynList,"Name","Syn")
+#'SynList <- get_itis_syn(scnames)
+#'cast_cs_field(SynList,"Name","Syn")
 #'}
 #'
-#' @family Discontinued functions
+#' @family List functions
 #' @export
-BuildCSList <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
-  .Deprecated("cast_cs_field")
+cast_cs_field <- function(data,pri,sec,duplicate=FALSE,sepchar=","){
   tdata <- data
   colnames(tdata)[which(colnames(tdata) == pri)] <- 'pri'
   colnames(tdata)[which(colnames(tdata) == sec)] <- 'sec'
