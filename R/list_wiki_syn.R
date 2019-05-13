@@ -47,8 +47,10 @@ list_wiki_syn <- function(namelist){
     }
     res <- rbind(res,recs)
   }
-  res <- as.data.frame(res)
-  names(res) <- c("Name","OrigSyn","Syn")
+  if(!is.null(res)){
+    res <- as.data.frame(res)
+    names(res) <- c("Name","OrigSyn","Syn")
+  }
   cat("\n")
   return(res)
 }

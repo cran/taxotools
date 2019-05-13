@@ -7,9 +7,10 @@
 #' @importFrom taxize get_tsn synonyms
 #' @family ITIS functions
 #' @examples
+#' \dontrun{
 #' get_itis_syn("Abrothrix longipilis")
 #' get_itis_syn("Abditomys latidens")
-#'
+#' }
 #' @export
 get_itis_syn <- function(scname){
   tsn <- get_tsn(scname, rows=1)[1]

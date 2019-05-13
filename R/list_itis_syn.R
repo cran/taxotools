@@ -6,9 +6,10 @@
 #' @family ITIS functions
 #' @return a data frame containing names (passed) and synonyms
 #' @examples
+#' \dontrun{
 #' list_itis_syn("Abrothrix longipilis")
 #' #list_itis_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
-#'
+#' }
 #' @export
 list_itis_syn <- function(namelist){
   retset <- NULL

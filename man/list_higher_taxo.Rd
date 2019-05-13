@@ -12,7 +12,7 @@ list_higher_taxo(indf, canonical, genus = FALSE, verbose = FALSE,
 
 \item{canonical}{field name containing scientific names}
 
-\item{genus}{If TRUE, use only genus level data to get taxanomy}
+\item{genus}{If TRUE, use only genus level data to get taxonomy}
 
 \item{verbose}{If TRUE, displays each name string for which the higher
 taxonomy is sought}
@@ -43,7 +43,10 @@ inat <- list_higher_taxo(inat)
 }
 }
 \seealso{
-Other Name functions: \code{\link{check_scientific}},
-  \code{\link{expand_name}}, \code{\link{guess_taxo_level}}
+Other Name functions: \code{\link{cast_canonical}},
+  \code{\link{check_scientific}},
+  \code{\link{expand_name}},
+  \code{\link{guess_taxo_level}},
+  \code{\link{melt_canonical}}
 }
 \concept{Name functions}
