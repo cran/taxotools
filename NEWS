@@ -1,8 +1,9 @@
-taxotools 0.0.29
+taxotools 0.0.30
 ================
 
 * Functions melt_canonical added
 * Function make_canonical renamed to cast_canonical
+* Function melt_cs_field parameter pri changed to melt
 
 taxotools 0.0.23
 ================

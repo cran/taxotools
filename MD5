@@ -1,6 +1,6 @@
-ccf248be40b62d0d6892893d9cff394e *DESCRIPTION
+0eea0e8fe69da84aec3252c2f0f23b06 *DESCRIPTION
 9152f5cd62264109c05f91d3482e8c28 *NAMESPACE
-0db6259776a650aab08e9646bb52d891 *NEWS
+92a48b740ca92d4cd2be057ec38fa537 *NEWS
 e9fc2941a8065c32ed3235c8c089a02d *R/BuildCSList.R
 67556c019c62ea8104d00836d1cac0e5 *R/CheckScientificName.R
 197ab067b5f1710399bab44c64c376ed *R/ExpandSyn.R
@@ -22,8 +22,8 @@ de19df6f8b66dfdfd471434ace1a07ea *R/list_higher_taxo.R
 0712c6fd17d5c5db1a4488fcf410aa1e *R/make_canonical.R
 4a9cd9fdb026acdc8ea2fbb3097eb81b *R/match_lists.R
 14ff300002b843c9d9cd90aa25ba6acc *R/melt_canonical.R
-1cb1aa81031ed47e2965c5bf0302400a *R/melt_cs_field.R
-4279da5b21a2d432cfed247fe38289ee *R/taxotools.R
+52b55343c83a1efc3c166a58c2f814df *R/melt_cs_field.R
+ce5dce100f53b5446d8412d67e7504a2 *R/taxotools.R
 58794fe3f5d0d0b8fd074b1b2c48faa5 *README.md
 b81594864118137b6a68340e66c97575 *man/BuildCSList.Rd
 37a581d00681a39a9f8dd215f58b6175 *man/CheckScientificName.Rd
@@ -46,5 +46,5 @@ a7b2b6a4ca3d004240f6298537233ba8 *man/cast_canonical.Rd
 b35e4a11f60abccd836c00a45b31cf21 *man/make_canonical.Rd
 d7237f15d254c533682b2821cb0f130c *man/match_lists.Rd
 ed60a08b4e69a095b3cce36a666b600d *man/melt_canonical.Rd
-eb13dcf75df7299067d32c1b678c0e96 *man/melt_cs_field.Rd
-4ee01fa4063a822a5c5c27f5e44a24f4 *man/taxotools.Rd
+ee238f1f54de251eb03f2d58c72c9f6d *man/melt_cs_field.Rd
+e37915492d71a859658834b76c4dfad1 *man/taxotools.Rd
