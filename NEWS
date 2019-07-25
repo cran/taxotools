@@ -1,7 +1,15 @@
+taxotools 0.0.35
+================
+
+* Function match_lists returns Jaccard index and new records in the checklist
+* Functions melt_canonical handles some stirngs in names like f. sp. spp. etc
+* Function list_wiki_syn returns wikipedia name too
+
+
 taxotools 0.0.30
 ================
 
-* Functions melt_canonical added
+* Function melt_canonical added
 * Function make_canonical renamed to cast_canonical
 * Function melt_cs_field parameter pri changed to melt
 
@@ -13,7 +21,7 @@ taxotools 0.0.23
 taxotools 0.0.20
 ================
 
-* Revised all function names to make them user friendly.
+* Revised all function names to make them user friendly
 
 taxotools 0.0.11
 ================
