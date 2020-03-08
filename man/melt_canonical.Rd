@@ -4,8 +4,7 @@
 \alias{melt_canonical}
 \title{Deconstruct canonical names}
 \usage{
-melt_canonical(dat, canonical = "", genus = "", species = "",
-  subspecies = "")
+melt_canonical(dat, canonical = "", genus = "", species = "", subspecies = "")
 }
 \arguments{
 \item{dat}{data frame containing taxonomic list}
@@ -19,22 +18,30 @@ melt_canonical(dat, canonical = "", genus = "", species = "",
 \item{subspecies}{field name for Subspecies}
 }
 \value{
-a data frame containing Genus, Species and Subspecies fields added or or repopulated
- using data in canonical name field.
+a data frame containing Genus, Species and Subspecies fields
+ added or repopulated using data in canonical name field.
 }
 \description{
 Deconstruct canonical names into Genus, Species and Subspecies fields.
 }
 \examples{
 \dontrun{
+mylist <- data.frame("canonical" = c("Abrothrix longipilis",
+                                    "Acodon hirtus",
+                                    "Akodon longipilis apta",
+                                    "AKODON LONGIPILIS CASTANEUS",
+                                    "Chroeomys jelskii",
+                                    "Acodon jelskii pyrrhotis"),
+                    stringsAsFactors = F)
 melt_canonical(mylist,"canonical","genus","species","subspecies")
 }
 }
 \seealso{
-Other Name functions: \code{\link{cast_canonical}},
-  \code{\link{check_scientific}},
-  \code{\link{expand_name}},
-  \code{\link{guess_taxo_level}},
-  \code{\link{list_higher_taxo}}
+Other Name functions: 
+\code{\link{cast_canonical}()},
+\code{\link{check_scientific}()},
+\code{\link{expand_name}()},
+\code{\link{guess_taxo_level}()},
+\code{\link{list_higher_taxo}()}
 }
 \concept{Name functions}

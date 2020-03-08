@@ -1,9 +1,17 @@
-taxotools 0.0.35
+taxotools 0.0.43
+================
+
+* Removed all discontinued functions
+* Function cast_cs_field bug fix duplicated parameter now works
+* Minor bug fixes and feature additions
+
+taxotools 0.0.38
 ================
 
 * Function match_lists returns Jaccard index and new records in the checklist
 * Functions melt_canonical handles some stirngs in names like f. sp. spp. etc
 * Function list_wiki_syn returns wikipedia name too
+* Few bugfixes
 
 
 taxotools 0.0.30
