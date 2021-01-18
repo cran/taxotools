@@ -1,22 +1,33 @@
 #' taxotools: Tools to handle taxonomic data
 #'
-#' Some tools to work with lists taxonomic names.
+#' Tools include matching and merging taxonomic lists, casting and melting 
+#' scientific names, managing taxonomic lists from GBIF and ITIS, harvesting 
+#' names from wikipedia and fuzzy matching.
 #'
 #'@section List functions:
 #'\itemize{
 #'\item \link{cast_cs_field}
-#'\item \link{melt_cs_field}
+#'\item \link{DwC2taxo}
 #'\item \link{match_lists}
+#'\item \link{melt_cs_field}
+#'\item \link{merge_lists}
+#'\item \link{syn2taxo}
+#'\item \link{synonymize_subspecies}
+#'\item \link{wiki2taxo}
 #'}
 #'
 #'@section Name functions:
 #'\itemize{
-#'\item \link{expand_name}
-#'\item \link{check_scientific}
-#'\item \link{guess_taxo_level}
+#'\item \link{build_gen_syn}
 #'\item \link{cast_canonical}
-#'\item \link{melt_canonical}
+#'\item \link{check_scientific}
+#'\item \link{expand_name}
+#'\item \link{get_accepted_names}
+#'\item \link{guess_taxo_rank}
 #'\item \link{list_higher_taxo}
+#'\item \link{melt_canonical}
+#'\item \link{melt_scientificname}
+#'\item \link{taxo_fuzzy_match}
 #'}
 #'
 #'@section ITIS functions:
@@ -33,9 +44,9 @@
 #'
 #'@section Citation:
 #'\itemize{
-#'\item Barve, V., (2019). taxotools: Tools to handle
-#'taxonomic data (R package V 0.0.39). Retrieved from
-#'https://cran.r-project.org/web/packages/taxotools/index.html
+#'\item Barve, V., (2021). taxotools: Tools to handle
+#'taxonomic data (R package V 0.0.79). Retrieved from
+#'https://doi.org/10.5281/zenodo.3934939
 #'}
 #'
 #' @docType package

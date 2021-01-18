@@ -1,6 +1,6 @@
 #' Deconstruct canonical names
 #'
-#' Deconstruct canonical names into Genus, Species and Subspecies fields.
+#' Deconstruct canonical names into Genus, Species and Subspecies fields
 #'
 #' @param dat data frame containing taxonomic list
 #' @param canonical field name for canonical names
@@ -27,26 +27,27 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
   if(genus==""){
     return(NULL)
   } else {
-    newdat <- rename_column(newdat,genus,"genus")
+    newdat <- rename_column(newdat,genus,"genus",silent=TRUE)
     newdat$genus <- NA
   }
   if(species==""){
     return(NULL)
   } else {
-    newdat <- rename_column(newdat,species,"species")
+    newdat <- rename_column(newdat,species,"species",silent=TRUE)
     newdat$species <- NA
   }
   if(subspecies!=""){
-    newdat <- rename_column(newdat,subspecies,"subspecies")
+    newdat <- rename_column(newdat,subspecies,"subspecies",silent=TRUE)
     newdat$subspecies <- NA
   }
   if(canonical!=""){
     newdat <- rename_column(newdat,canonical,"canonical")
   }
-  for(i in 1:dim(newdat)[1]){
+  pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
+  for(i in 1:nrow(newdat)){
     if(!is.empty(newdat$canonical[i])){
-      tl <- guess_taxo_level(newdat$canonical[i])
-      newdat$genus[i] <- proper(strsplit(newdat$canonical[i]," ")[[1]][1])
+      tl <- guess_taxo_rank(newdat$canonical[i])
+      newdat$genus[i] <- toproper(strsplit(newdat$canonical[i]," ")[[1]][1])
       if(tl=="Species" | tl=="Subspecies"){
         newdat$species[i] <- tolower(strsplit(newdat$canonical[i]," ")[[1]][2])
       }
@@ -54,6 +55,7 @@ melt_canonical <- function(dat,canonical="",genus="",species="",subspecies=""){
         newdat$subspecies[i] <- tolower(strsplit(newdat$canonical[i]," ")[[1]][3])
       }
     }
+    setTxtProgressBar(pb,i)
   }
   newdat <- rename_column(newdat,"genus",genus)
   newdat <- rename_column(newdat,"species",species)

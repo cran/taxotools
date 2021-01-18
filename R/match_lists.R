@@ -8,7 +8,7 @@
 #' @param checklistfld field name for canonical name in match list
 #' @family list functions
 #' @return a list with data frames containing matched records,
-#' records only in master and cheklist and statistics about the
+#' records only in master and checklist and statistics about the
 #' records including Jaccard index
 #' @examples
 #' \dontrun{
@@ -42,19 +42,31 @@ match_lists <- function(master,checklist,masterfld,checklistfld){
     checklist <- rename_column(checklist,checklistfld,"checklistfld")
     checklist$checklistfld <- as.character(checklist$checklistfld)
   }
-  retval$matchlist <- master[which(master$masterfld %in% checklist$checklistfld),]
-  retval$onlymaster <- master[which(master$masterfld %!in% checklist$checklistfld),]
-  retval$onlychecklist <-  checklist[which(checklist$checklistfld %!in% master$masterfld),]
-  retval$matchlist <- rename_column(retval$matchlist,"masterfld",masterfld)
-  retval$onlymaster <- rename_column(retval$onlymaster,"masterfld",masterfld)
-  retval$onlychecklist <- rename_column(retval$onlychecklist,"checklistfld",checklistfld)
-  retval$stat$masterrec <- dim(master)[1]
-  retval$stat$checkrec <- dim(checklist)[1]
-  retval$stat$match <- dim(retval$matchlist)[1]
-  retval$stat$onlymaster <- dim(retval$onlymaster)[1]
-  retval$stat$onlychecklist <- dim(retval$onlychecklist)[1]
-  retval$stat$jacard <- dim(retval$matchlist)[1] / ( dim(retval$matchlist)[1] +
-                                                       dim(retval$onlymaster)[1] +
-                                                       dim(retval$onlychecklist)[1] )
+  retval$matchlist <- master[which(master$masterfld %in%
+                                     checklist$checklistfld),]
+  retval$onlymaster <- master[which(master$masterfld %!in%
+                                      checklist$checklistfld),]
+  retval$onlychecklist <-  checklist[which(checklist$checklistfld %!in%
+                                             master$masterfld),]
+  retval$matchlist <- rename_column(retval$matchlist,"masterfld",
+                                    masterfld,silent=TRUE)
+  retval$onlymaster <- rename_column(retval$onlymaster,"masterfld",
+                                     masterfld,silent=TRUE)
+  retval$onlychecklist <- rename_column(retval$onlychecklist,"checklistfld",
+                                        checklistfld,silent=TRUE)
+  retval$stat$masterrec <- nrow(master)
+  retval$stat$checkrec <- nrow(checklist)
+  retval$stat$matchrec <- nrow(retval$matchlist)
+  retval$stat$onlymasterrec <- nrow(retval$onlymaster)
+  retval$stat$onlychecklistrec <- nrow(retval$onlychecklist)
+  retval$stat$mastertaxa <- nrow(master[which(master$accid==0),])
+  retval$stat$checktaxa <- nrow(checklist[which(checklist$accid==0),])
+  retval$stat$matchtaxa <- nrow(retval$matchlist[which(retval$matchlist$accid==0),])
+  retval$stat$onlymastertaxa <- nrow(retval$onlymaster[which(retval$onlymaster$accid==0),])
+  retval$stat$onlychecklisttaxa <- nrow(retval$onlychecklist[which(retval$onlychecklist$accid==0),])
+  retval$stat$jaccard <- nrow(retval$matchlist) /
+    ( nrow(retval$matchlist) +
+        nrow(retval$onlymaster) +
+        nrow(retval$onlychecklist) )
   return(retval)
 }

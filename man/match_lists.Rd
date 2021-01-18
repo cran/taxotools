@@ -17,7 +17,7 @@ match_lists(master, checklist, masterfld, checklistfld)
 }
 \value{
 a list with data frames containing matched records,
-records only in master and cheklist and statistics about the
+records only in master and checklist and statistics about the
 records including Jaccard index
 }
 \description{
@@ -40,5 +40,10 @@ checklist <- data.frame("canonical" = c("Abrothrix longipilis",
                     stringsAsFactors = F)
 match_lists(master,checklist,"canonical","canonical")
 }
+}
+\seealso{
+Other list functions: 
+\code{\link{DwC2taxo}()},
+\code{\link{synonymize_subspecies}()}
 }
 \concept{list functions}

@@ -4,10 +4,18 @@
 \alias{cast_canonical}
 \title{Construct canonical names}
 \usage{
-cast_canonical(dat, genus = "", species = "", subspecies = "")
+cast_canonical(
+  dat,
+  canonical = "canonical",
+  genus = "",
+  species = "",
+  subspecies = ""
+)
 }
 \arguments{
 \item{dat}{data frame containing taxonomic list}
+
+\item{canonical}{field name for canonical names}
 
 \item{genus}{field name for Genus field}
 
@@ -26,15 +34,21 @@ canonical names.
 }
 \examples{
 \dontrun{
-cast_canonical(mylist,"genus","species","subspecies")
+mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
+                     "species" = c("jelskii","longipilis","longipilis", "sevia"),
+                     "subspecies" = c("pyrrhotis","castaneus","", NA))
+cast_canonical(mylist,"canonical","genus","species","subspecies")
 }
 }
 \seealso{
 Other Name functions: 
+\code{\link{build_gen_syn}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
-\code{\link{guess_taxo_level}()},
+\code{\link{get_accepted_names}()},
+\code{\link{guess_taxo_rank}()},
 \code{\link{list_higher_taxo}()},
-\code{\link{melt_canonical}()}
+\code{\link{melt_canonical}()},
+\code{\link{melt_scientificname}()}
 }
 \concept{Name functions}
