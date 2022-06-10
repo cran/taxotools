@@ -4,7 +4,14 @@
 \alias{cast_cs_field}
 \title{Build a character (comma) separated List within field}
 \usage{
-cast_cs_field(data, pri, sec, duplicate = FALSE, sepchar = ",")
+cast_cs_field(
+  data,
+  pri,
+  sec,
+  duplicate = FALSE,
+  sepchar = ",",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{data}{data frame containing primary and secondary data columns}
@@ -17,6 +24,8 @@ comma separated)}
 \item{duplicate}{If true, duplicate entries are allowed in secondary field}
 
 \item{sepchar}{Character separator between the data items. Default is comma}
+
+\item{verbose}{verbose output, Default: FALSE}
 }
 \value{
 a data frame with two fields Primary and secondary (comma
@@ -28,18 +37,26 @@ with primary field repeating values and secondary field with values to be
 character separated in the same field (secondary)
 }
 \examples{
-\dontrun{
-scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-SynList <- list_itis_syn(scnames)
-cast_cs_field(SynList,"Name","Syn")
+\donttest{
+  scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
+  SynList <- list_itis_syn(scnames)
+  cast_cs_field(SynList,"canonical","synonym")
 }
 
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
+\code{\link{compact_ids}()},
+\code{\link{get_synonyms}()},
+\code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
+\code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
+\code{\link{taxo2syn}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}

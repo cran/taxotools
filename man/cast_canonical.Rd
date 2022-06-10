@@ -9,19 +9,22 @@ cast_canonical(
   canonical = "canonical",
   genus = "",
   species = "",
-  subspecies = ""
+  subspecies = "",
+  verbose = FALSE
 )
 }
 \arguments{
 \item{dat}{data frame containing taxonomic list}
 
-\item{canonical}{field name for canonical names}
+\item{canonical}{field name for canonical names. Deafault 'canonical'}
 
 \item{genus}{field name for Genus field}
 
 \item{species}{field name for Species field}
 
 \item{subspecies}{field name for Subspecies field}
+
+\item{verbose}{verbose output, Default: FALSE}
 }
 \value{
 a data frame containing Canonical names field added or repopulated using
@@ -33,7 +36,7 @@ due to spaces or NAs in the data fields, it makes it tricky to generate
 canonical names.
 }
 \examples{
-\dontrun{
+\donttest{
 mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
                      "species" = c("jelskii","longipilis","longipilis", "sevia"),
                      "subspecies" = c("pyrrhotis","castaneus","", NA))
@@ -43,12 +46,15 @@ cast_canonical(mylist,"canonical","genus","species","subspecies")
 \seealso{
 Other Name functions: 
 \code{\link{build_gen_syn}()},
+\code{\link{cast_scientificname}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
 \code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_rank}()},
 \code{\link{list_higher_taxo}()},
 \code{\link{melt_canonical}()},
-\code{\link{melt_scientificname}()}
+\code{\link{melt_scientificname}()},
+\code{\link{resolve_names}()},
+\code{\link{taxo_fuzzy_match}()}
 }
 \concept{Name functions}

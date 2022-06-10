@@ -9,14 +9,18 @@
 #' @family Name functions
 #' @importFrom taxize gbif_parse gnr_resolve
 #' @examples
+#' \donttest{
 #' check_scientific("Akodon longipilis (Waterhouse, 1837)")
 #' check_scientific("Mus longipilis Waterhouse, 1837")
 #' check_scientific("Akodon hershkovitzi Patterson, Gallardo, and Freas, 1984")
-#'
+#' }
 #' @export
 check_scientific <- function(name){
-  res <- gnr_resolve(name)
-  if(dim(res)[1]>0){
+  res <- tryCatch({gnr_resolve(name)},
+           error=function(cond) {
+             message("There was an error")
+             return(NULL)})  
+  if(!is.null(res)){
     res1 <- tryCatch({gbif_parse(res$matched_name[1])},
                      error=function(cond) {
                        message("There was an error")

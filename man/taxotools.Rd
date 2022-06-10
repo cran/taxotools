@@ -13,12 +13,17 @@ names from wikipedia and fuzzy matching.
 
 \itemize{
 \item \link{cast_cs_field}
+\item \link{compact_ids}
 \item \link{DwC2taxo}
+\item \link{get_synonyms}
 \item \link{match_lists}
 \item \link{melt_cs_field}
 \item \link{merge_lists}
 \item \link{syn2taxo}
 \item \link{synonymize_subspecies}
+\item \link{taxo2doc}
+\item \link{taxo2DwC}
+\item \link{taxo2syn}
 \item \link{wiki2taxo}
 }
 }
@@ -28,6 +33,7 @@ names from wikipedia and fuzzy matching.
 \itemize{
 \item \link{build_gen_syn}
 \item \link{cast_canonical}
+\item \link{cast_scientificname}
 \item \link{check_scientific}
 \item \link{expand_name}
 \item \link{get_accepted_names}
@@ -35,6 +41,7 @@ names from wikipedia and fuzzy matching.
 \item \link{list_higher_taxo}
 \item \link{melt_canonical}
 \item \link{melt_scientificname}
+\item \link{resolve_names}
 \item \link{taxo_fuzzy_match}
 }
 }

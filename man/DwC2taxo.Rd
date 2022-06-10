@@ -11,10 +11,11 @@ DwC2taxo(namelist, statuslist = NA, source = NA)
 
 \item{statuslist}{vector listing taxonomicStatus to be considered in
 the namelist. If Default value is NA, automatically uses list of
-\itemize{\item{Accepted}\item{Synonym}\item{Valid}
-\item{heterotypicSynonym}#' \item{homotypicSynonym}}}
+\itemize{\item{Accepted} \item{Synonym} \item{Valid}
+\item{heterotypic Synonym} \item{homotypic Synonym} \item{doubtful},
+\item{proparte synonym}}}
 
-\item{source}{source of the namelist. Default NA}
+\item{source}{source of the namelist i.e. GBIF or ITIS. Default NA}
 }
 \value{
 names list is taxolist format
@@ -23,20 +24,43 @@ names list is taxolist format
 Converts a Darwin Core name list to taxolist format
 }
 \details{
-The name lists downloaded for ITIS website in Darwin Core format has
-all the required fields. Just needs to be converted and quality checked in terms
- of missing linkages
+The name lists downloaded from ITIS or GBIF website in Darwin Core
+ format has all the required fields for taxolist. The list just needs to be 
+ converted to taxolist by renaming column names and and quality checked in 
+ terms of missing synonym to accepted name linkages at times.
 }
 \examples{
-\dontrun{
-if(interactive()){
- taxolist <- DwC2taxo(namelist)
- }
+\donttest{
+dwclist <- data.frame("taxonKey" = c("5129025","6224429","1896957"),
+                      "scientificName" =  c("Charaxes solon Fabricius, 1793",
+                                            "Papilio jason Linnaeus, 1767",
+                                            "Charaxes jasius (Linnaeus, 1767)"),
+                     "acceptedTaxonKey" = c("5129025","1896957","1896957"),
+                     "acceptedScientificName" = c("Charaxes solon Fabricius, 1793",
+                                                  "Charaxes jasius (Linnaeus, 1767)",
+                                                  "Charaxes jasius (Linnaeus, 1767)"),
+                     "taxonRank" = c("SPECIES","SPECIES","SPECIES"),
+                     "taxonomicStatus" = c("ACCEPTED","SYNONYM","ACCEPTED"),
+                     "family" = c("Nymphalidae","Nymphalidae","Nymphalidae"),
+                     "order" = c("Lepidoptera","Lepidoptera","Lepidoptera"),
+                     stringsAsFactors = FALSE)
+                     
+mytaxo <- DwC2taxo(dwclist)
 }
 }
 \seealso{
-Other list functions: 
+Other List functions: 
+\code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
+\code{\link{get_synonyms}()},
 \code{\link{match_lists}()},
-\code{\link{synonymize_subspecies}()}
+\code{\link{melt_cs_field}()},
+\code{\link{merge_lists}()},
+\code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
+\code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
+\code{\link{taxo2syn}()},
+\code{\link{wiki2taxo}()}
 }
-\concept{list functions}
+\concept{List functions}

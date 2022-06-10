@@ -10,13 +10,13 @@ list_itis_syn(namelist)
 \item{namelist}{list of scientific names}
 }
 \value{
-a data frame containing names (passed) and synonyms
+a data frame containing canonical names (passed) and synonyms
 }
 \description{
 Fetch Synonyms from ITIS
 }
 \examples{
-\dontrun{
+\donttest{
 list_itis_syn("Abrothrix longipilis")
 #list_itis_syn(c("Abditomys latidens", "Abeomelomys sevia", "Abrothrix jelskii" ))
 }

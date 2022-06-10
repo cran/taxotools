@@ -31,19 +31,29 @@ master <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Akodon longipilis castaneus",
                                     "Chroeomys jelskii",
                                     "Acodon jelskii pyrrhotis"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 checklist <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Akodon longipilis apta",
                                     "Akodon longipilis castaneus",
                                     "Abrothrix jelskii",
                                     "Acodon jelskii pyrrhotis"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 match_lists(master,checklist,"canonical","canonical")
 }
 }
 \seealso{
-Other list functions: 
+Other List functions: 
 \code{\link{DwC2taxo}()},
-\code{\link{synonymize_subspecies}()}
+\code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
+\code{\link{get_synonyms}()},
+\code{\link{melt_cs_field}()},
+\code{\link{merge_lists}()},
+\code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
+\code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
+\code{\link{taxo2syn}()},
+\code{\link{wiki2taxo}()}
 }
-\concept{list functions}
+\concept{List functions}

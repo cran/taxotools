@@ -49,7 +49,7 @@ mylist <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Abrothrix jelskii",
                                     "Cardinalis cardinalis",
                                     "Danaus plexippus"),
-                    stringsAsFactors = F)
+                    stringsAsFactors = FALSE)
 
 my_taxo_list <- list_higher_taxo(mylist,"canonical")
 }
@@ -58,11 +58,14 @@ my_taxo_list <- list_higher_taxo(mylist,"canonical")
 Other Name functions: 
 \code{\link{build_gen_syn}()},
 \code{\link{cast_canonical}()},
+\code{\link{cast_scientificname}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
 \code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_rank}()},
 \code{\link{melt_canonical}()},
-\code{\link{melt_scientificname}()}
+\code{\link{melt_scientificname}()},
+\code{\link{resolve_names}()},
+\code{\link{taxo_fuzzy_match}()}
 }
 \concept{Name functions}

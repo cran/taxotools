@@ -5,15 +5,16 @@
 #' canonical names.
 #'
 #' @param dat data frame containing taxonomic list
-#' @param canonical field name for canonical names
+#' @param canonical field name for canonical names. Deafault 'canonical'
 #' @param genus field name for Genus field
 #' @param species field name for Species field
 #' @param subspecies field name for Subspecies field
+#' @param verbose verbose output, Default: FALSE
 #' @family Name functions
 #' @return a data frame containing Canonical names field added or repopulated using
 #'     filed names for Genus, Species and Subspecies specified in parameters
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' mylist <- data.frame("genus" = c("Acodon", "Akodon", "Abrothrix", "Abeomelomys"),
 #'                      "species" = c("jelskii","longipilis","longipilis", "sevia"),
 #'                      "subspecies" = c("pyrrhotis","castaneus","", NA))
@@ -21,7 +22,10 @@
 #' }
 #' @export
 cast_canonical <- function(dat,canonical="canonical",genus="",
-                           species="",subspecies=""){
+                           species="",subspecies="",verbose=FALSE){
+  if(is.null(dat) | nrow(dat)==0 ){
+    return(NULL)  
+  }
   newdat <- as.data.frame(dat)
   newdat$canonical_ <- NA
   if(is.empty(canonical)){
@@ -29,11 +33,13 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
     canonical <- "canonical"
   }
   if(genus==""){
+    warning("genus field not specified")
     return(NULL)
   } else {
     newdat <- rename_column(newdat,genus,"genus_")
   }
   if(species==""){
+    warning("species field not specified")
     return(NULL)
   } else {
     newdat <- rename_column(newdat,species,"species_")
@@ -41,24 +47,29 @@ cast_canonical <- function(dat,canonical="canonical",genus="",
   if(subspecies!=""){
     newdat <- rename_column(newdat,subspecies,"subspecies_")
   } else {
-    newdat$subspecies <- NA
+    warning("subspecies field not specified. Assuming empty")
+    newdat$subspecies_ <- NA
   }
-  pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
+  if(verbose){pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)}
   for(i in 1:nrow(newdat)){
+    cano <- NA
     if(!is.empty(newdat$genus_[i])){
       cano <- newdat$genus_[i]
     }
-    if(!is.empty(newdat$species_[i])){
+    if(!is.empty(newdat$species_[i]) &
+       !is.empty(cano)){
       cano <- paste(cano,newdat$species_[i])
     }
     if(subspecies!=""){
-      if(!is.empty(newdat$subspecies_[i])){
+      if(!is.empty(newdat$subspecies_[i])&
+         !is.empty(cano)){
         cano <- paste(cano,newdat$subspecies_[i])
       }
     }
     newdat$canonical_[i] <- toproper(cano)
-    setTxtProgressBar(pb,i)
+    if(verbose){setTxtProgressBar(pb,i)}
   }
+  if(verbose){cat("\n")}
   newdat <- rename_column(newdat,"genus_",genus)
   newdat <- rename_column(newdat,"species_",species)
   if(subspecies!=""){

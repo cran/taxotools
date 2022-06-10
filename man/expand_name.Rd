@@ -29,11 +29,14 @@ expand_name("Oryx addax", "O. nasomaculatus")
 Other Name functions: 
 \code{\link{build_gen_syn}()},
 \code{\link{cast_canonical}()},
+\code{\link{cast_scientificname}()},
 \code{\link{check_scientific}()},
 \code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_rank}()},
 \code{\link{list_higher_taxo}()},
 \code{\link{melt_canonical}()},
-\code{\link{melt_scientificname}()}
+\code{\link{melt_scientificname}()},
+\code{\link{resolve_names}()},
+\code{\link{taxo_fuzzy_match}()}
 }
 \concept{Name functions}

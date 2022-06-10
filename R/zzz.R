@@ -1,8 +1,10 @@
+#' @importFrom stringi stri_trans_general
 
 '%!in%' <- function(x,y)!('%in%'(x,y))
 
-toproper <- function(x) paste0(toupper(substr(x, 1, 1)),
-                             tolower(substring(x, 2)))
+toproper <- function(x) ifelse(!is.na(x),
+                               paste0(toupper(substr(x, 1, 1)),
+                                      tolower(substring(x, 2))),NA)
 isproper <- function(word){
   if(word == toproper(word)){
     return(TRUE)
@@ -45,8 +47,20 @@ rename_column <- function(dat,old,new,silent=FALSE){
     colnames(dat)[which(names(dat) == old)] <- new
   } else {
     if(!silent){
-      print(paste("Fieldname not found...",old))
+      cat(paste("\nFieldname not found...",old))
     }
   }
   return(dat)
+}
+
+utf2ascii <- function(x){
+  x <- ifelse(!is.na(x) & Encoding(x)=="UTF-8",
+              stringi::stri_trans_general(x,id="Latin-ASCII"),x)
+  return(x)
+}
+
+str2ascii <- function(x){
+  x <- ifelse(!is.na(x) ,
+              stringi::stri_trans_general(x,id="Latin-ASCII"),x)
+  return(x)
 }

@@ -33,35 +33,48 @@ melt_scientificname(
 \item{verbose}{verbose output, Default: FALSE}
 }
 \value{
-data frame with additional columns for fields
+data frame with additional columns for taxonomic fields
 }
 \description{
-Try to parse scientific names into Genus, species, Subspecies,
+Parse scientific names into Genus, Species, Subspecies,
  Author etc.
 }
 \details{
-Helpful function to break down Scientific names into Genus,
+Helpful function to break down Scientific names into Genus, Subgenus,
 species, Subspecies, Author so that the names can be constructed into canonical
  names for matching
 }
 \examples{
-\dontrun{
-if(interactive()){
- melt_scientificname(mylist, sciname="Scientific", genus="genus",
-  subgenus="subgenus", species="species",subspecies="subspecies",
-  author="author")
- }
+\donttest{
+mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
+                     "scname" = c("Hypochlorosis ancharia (Hewitson, 1869)",
+                                  "Hypochlorosis ancharia ssp. ancharia (Hewitson, 1869)",
+                                  "Hypochlorosis ancharia ssp. humboldti Druce, 1894",
+                                  "Myrina lorquinii C. & R. Felder, 1865",
+                                  "Hypochlorosis ancharia tenebrosa Rothschild, 1915",
+                                  "Hypochlorosis ancharia  tenebrosa Rothschild, 1915",
+                                  "Hypochlorosis (Pseudonotis) metilia Fruhstorfer, 1908",
+                                  "Seuku emlongi (Domning et al., 1986)",
+                                  "Sithon lorquinii"),
+                     stringsAsFactors = FALSE)
+
+melt_scientificname(mylist, sciname="scname", genus="genus",
+                    subgenus="subgenus", species="species",subspecies="subspecies",
+                    author="author")
 }
 }
 \seealso{
 Other Name functions: 
 \code{\link{build_gen_syn}()},
 \code{\link{cast_canonical}()},
+\code{\link{cast_scientificname}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
 \code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_rank}()},
 \code{\link{list_higher_taxo}()},
-\code{\link{melt_canonical}()}
+\code{\link{melt_canonical}()},
+\code{\link{resolve_names}()},
+\code{\link{taxo_fuzzy_match}()}
 }
 \concept{Name functions}

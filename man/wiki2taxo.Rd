@@ -22,18 +22,24 @@ than taxolist. This function converts it making sure to add additional
 fields and maintain the synonym linkages.
 }
 \examples{
-\dontrun{
-if(interactive()){
+\donttest{
  wikilist <- list_wiki_syn("Abrothrix illutea")
  wiki2taxo(wikilist)
- }
 }
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
+\code{\link{get_synonyms}()},
+\code{\link{match_lists}()},
 \code{\link{melt_cs_field}()},
 \code{\link{merge_lists}()},
-\code{\link{syn2taxo}()}
+\code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
+\code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
+\code{\link{taxo2syn}()}
 }
 \concept{List functions}

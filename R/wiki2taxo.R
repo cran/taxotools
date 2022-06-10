@@ -8,17 +8,17 @@
 #' fields and maintain the synonym linkages.
 #' @family List functions
 #' @examples
-#' \dontrun{
-#' if(interactive()){
+#' \donttest{
 #'  wikilist <- list_wiki_syn("Abrothrix illutea")
 #'  wiki2taxo(wikilist)
-#'  }
 #' }
 #' @rdname wiki2taxo
 #' @export
 wiki2taxo <- function(wikisyn){
   # Accepeted Names
   wikisyn <- as.data.frame(wikisyn)
+  wikisyn <- wikisyn[which(wikisyn$Syn %!in% wikisyn$Name),]
+  wikisyn <- wikisyn[!duplicated(paste(wikisyn$WikiName,wikisyn$Syn)),]
   canonical <- unique(wikisyn$Name)
   Id <- seq(1:length(canonical))
   AccId <- 0

@@ -6,7 +6,7 @@
 #' @param checklist match  taxonomic list
 #' @param masterfld field name for canonical name in master list
 #' @param checklistfld field name for canonical name in match list
-#' @family list functions
+#' @family List functions
 #' @return a list with data frames containing matched records,
 #' records only in master and checklist and statistics about the
 #' records including Jaccard index
@@ -18,13 +18,13 @@
 #'                                     "Akodon longipilis castaneus",
 #'                                     "Chroeomys jelskii",
 #'                                     "Acodon jelskii pyrrhotis"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #'checklist <- data.frame("canonical" = c("Abrothrix longipilis",
 #'                                     "Akodon longipilis apta",
 #'                                     "Akodon longipilis castaneus",
 #'                                     "Abrothrix jelskii",
 #'                                     "Acodon jelskii pyrrhotis"),
-#'                     stringsAsFactors = F)
+#'                     stringsAsFactors = FALSE)
 #' match_lists(master,checklist,"canonical","canonical")
 #' }
 #' @export

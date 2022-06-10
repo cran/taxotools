@@ -1,5 +1,5 @@
 #' @title Melt scientific name into fields
-#' @description Try to parse scientific names into Genus, species, Subspecies,
+#' @description Parse scientific names into Genus, Species, Subspecies,
 #'  Author etc.
 #' @param dat data frame containing scientific names
 #' @param sciname column name for scientific names, Default: ''
@@ -9,24 +9,37 @@
 #' @param subspecies column name for subspecies, Default: 'subspecies'
 #' @param author column name for author, Default: 'author'
 #' @param verbose verbose output, Default: FALSE
-#' @return data frame with additional columns for fields
-#' @details Helpful function to break down Scientific names into Genus,
+#' @return data frame with additional columns for taxonomic fields
+#' @details Helpful function to break down Scientific names into Genus, Subgenus,
 #' species, Subspecies, Author so that the names can be constructed into canonical
 #'  names for matching
 #' @family Name functions
 #' @examples
-#' \dontrun{
-#' if(interactive()){
-#'  melt_scientificname(mylist, sciname="Scientific", genus="genus",
-#'   subgenus="subgenus", species="species",subspecies="subspecies",
-#'   author="author")
-#'  }
+#' \donttest{
+#' mylist <- data.frame("id"= c(11,12,13,14,15,16,17,18,19),
+#'                      "scname" = c("Hypochlorosis ancharia (Hewitson, 1869)",
+#'                                   "Hypochlorosis ancharia ssp. ancharia (Hewitson, 1869)",
+#'                                   "Hypochlorosis ancharia ssp. humboldti Druce, 1894",
+#'                                   "Myrina lorquinii C. & R. Felder, 1865",
+#'                                   "Hypochlorosis ancharia tenebrosa Rothschild, 1915",
+#'                                   "Hypochlorosis ancharia  tenebrosa Rothschild, 1915",
+#'                                   "Hypochlorosis (Pseudonotis) metilia Fruhstorfer, 1908",
+#'                                   "Seuku emlongi (Domning et al., 1986)",
+#'                                   "Sithon lorquinii"),
+#'                      stringsAsFactors = FALSE)
+#' 
+#' melt_scientificname(mylist, sciname="scname", genus="genus",
+#'                     subgenus="subgenus", species="species",subspecies="subspecies",
+#'                     author="author")
 #' }
 #' @rdname melt_scientificname
 #' @export
 melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus",
                                 species="species",subspecies="subspecies",
                                 author="author", verbose=FALSE){
+  if(is.null(dat) | nrow(dat)==0){
+    return(NULL)
+  }
   spvar <- c("sp","sp.","species", "verified")
   authvar <- c("ex","ex.","van", "de", "von", "et", "et.", "al", "al.",
                "da", "du", "la", "del", "der", "den", "y", "al.,")
@@ -61,7 +74,6 @@ melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus
     newdat <- rename_column(newdat,author,"author_",silent=TRUE)
     newdat$author_ <- ""
   }
-
   pb = txtProgressBar(min = 0, max = nrow(newdat), initial = 0)
   for(i in 1:nrow(newdat)){
     if(!is.empty(newdat$sciname[i])){
@@ -138,6 +150,7 @@ melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus
     }
     setTxtProgressBar(pb,i)
   }
+  cat("\n")
   newdat <- rename_column(newdat,"genus_",genus)
   newdat <- rename_column(newdat,"species_",species)
   if(subspecies!=""){
@@ -147,6 +160,7 @@ melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus
     newdat <- rename_column(newdat,"subgenus_",subgenus)
   }
   if(author!=""){
+    newdat$author <- trimws(newdat$author)
     newdat <- rename_column(newdat,"author_",author)
   }
   newdat <- rename_column(newdat,"sciname",sciname)

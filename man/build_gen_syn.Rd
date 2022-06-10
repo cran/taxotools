@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_gen_syn.R
 \name{build_gen_syn}
 \alias{build_gen_syn}
-\title{Build genetic level synonyms}
+\title{Build genus level synonyms}
 \usage{
 build_gen_syn(dat)
 }
@@ -21,21 +21,37 @@ This is to #'  be passed on to get_accepted_names function
  as a parameter
 }
 \examples{
-\dontrun{
-if(interactive()){
+\donttest{
+master <- data.frame("id" = c(1,2,3,4,5,6,7),
+                    "canonical" = c("Hypochlorosis ancharia",
+                                     "Hypochlorosis tenebrosa",
+                                     "Pseudonotis humboldti",
+                                     "Myrina ancharia ancharia",
+                                     "Hypochlorosis ancharia tenebrosa",
+                                     "Hypochlorosis ancharia obiana",
+                                     "Hypochlorosis lorquinii"),
+                     "family" = c("Lycaenidae", "Lycaenidae", "Lycaenidae",
+                                  "Lycaenidae", "Lycaenidae", "Lycaenidae",
+                                  "Lycaenidae"),
+                     "accid" = c(0,1,1,0,0,0,0),
+                     "source" = c("itis","itis","wiki","wiki","itis",
+                                  "itis","itis"),
+                     stringsAsFactors = FALSE)
  gen_syn <- build_gen_syn(master)
- }
 }
 }
 \seealso{
 Other Name functions: 
 \code{\link{cast_canonical}()},
+\code{\link{cast_scientificname}()},
 \code{\link{check_scientific}()},
 \code{\link{expand_name}()},
 \code{\link{get_accepted_names}()},
 \code{\link{guess_taxo_rank}()},
 \code{\link{list_higher_taxo}()},
 \code{\link{melt_canonical}()},
-\code{\link{melt_scientificname}()}
+\code{\link{melt_scientificname}()},
+\code{\link{resolve_names}()},
+\code{\link{taxo_fuzzy_match}()}
 }
 \concept{Name functions}

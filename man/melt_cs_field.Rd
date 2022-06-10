@@ -5,7 +5,7 @@
 \title{Generate a list melting character (comma) separated field values into multiple
 records}
 \usage{
-melt_cs_field(data, melt, sepchar = ",")
+melt_cs_field(data, melt, sepchar = ",", verbose = FALSE)
 }
 \arguments{
 \item{data}{data frame containing a data columns with character(comma) separated values}
@@ -13,6 +13,8 @@ melt_cs_field(data, melt, sepchar = ",")
 \item{melt}{Field name with character(comma) separated values}
 
 \item{sepchar}{Character separator between the data items. Default is comma}
+
+\item{verbose}{verbose output, Default: FALSE}
 }
 \value{
 a data frame with separate records for each value in field specified
@@ -22,19 +24,27 @@ Builds a list, melting character (comma) separated field values given a data fra
 with a field with repeating values
 }
 \examples{
-\dontrun{
-scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
-syn_list <- list_itis_syn(scnames)
-cs_syn_list <- cast_cs_field(syn_list ,"Name","Syn")
-syn_list_new <- melt_cs_field(cs_syn_list,"Syn")
+\donttest{
+  scnames <- c("Abrothrix longipilis", "Abrothrix jelskii")
+  syn_list <- list_itis_syn(scnames)
+  cs_syn_list <- cast_cs_field(syn_list ,"Name","Syn")
+  syn_list_new <- melt_cs_field(cs_syn_list,"Syn")
 }
 
 }
 \seealso{
 Other List functions: 
+\code{\link{DwC2taxo}()},
 \code{\link{cast_cs_field}()},
+\code{\link{compact_ids}()},
+\code{\link{get_synonyms}()},
+\code{\link{match_lists}()},
 \code{\link{merge_lists}()},
 \code{\link{syn2taxo}()},
+\code{\link{synonymize_subspecies}()},
+\code{\link{taxo2DwC}()},
+\code{\link{taxo2doc}()},
+\code{\link{taxo2syn}()},
 \code{\link{wiki2taxo}()}
 }
 \concept{List functions}
