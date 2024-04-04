@@ -34,9 +34,10 @@
 #' }
 #' @rdname melt_scientificname
 #' @export
-melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus",
-                                species="species",subspecies="subspecies",
-                                author="author", verbose=FALSE){
+melt_scientificname <- function(dat,sciname="",genus="genus", 
+                                subgenus="subgenus", species="species",
+                                subspecies="subspecies", author="author",
+                                verbose=FALSE){
   if(is.null(dat) | nrow(dat)==0){
     return(NULL)
   }
@@ -160,7 +161,7 @@ melt_scientificname <- function(dat,sciname="",genus="genus", subgenus="subgenus
     newdat <- rename_column(newdat,"subgenus_",subgenus)
   }
   if(author!=""){
-    newdat$author <- trimws(newdat$author)
+    newdat$author_ <- trimws(newdat$author_)
     newdat <- rename_column(newdat,"author_",author)
   }
   newdat <- rename_column(newdat,"sciname",sciname)

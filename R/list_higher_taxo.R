@@ -18,13 +18,13 @@
 #'@param verbose If TRUE, displays each name string for which the higher
 #'  taxonomy is sought
 #'@param progress If TRUE prints progress bar and messages on the console.
-#'@return data frame with added / updated columns \itemize{ \item{"Kingdom"}{Kingdom
+#'@return data frame with added / updated columns \describe{ \item{"Kingdom"}{Kingdom
 #'  of the Scientific name} \item{"Phylum"}{Phylum of the Scientific name}
 #'  \item{"Order_"}{Order of the Scientific name} \item{"Family"}{Family of the
 #'  Scientific name} \item{"Genus"}{Genus of the Scientific name} } and also
 #'  saves a local copy of taxonomy downloaded for future use in 'taxo.db' sqlite
 #'  file
-#'@examples \donttest{
+#'@examples \dontrun{
 #'mylist <- data.frame("canonical" = c("Abrothrix longipilis",
 #'                                     "Mus longipilis",
 #'                                     "Abrothrix jelskii",
@@ -36,7 +36,8 @@
 #'}
 #'@family Name functions
 #'@export
-list_higher_taxo <- function(indf,canonical,genus=FALSE,verbose=FALSE,progress=TRUE){
+list_higher_taxo <- function(indf,canonical,genus=FALSE,verbose=FALSE,
+                             progress=TRUE){
   colnames(indf)[which(colnames(indf) == canonical)] <- 'Scientific_name'
   names(indf)[names(indf)=="Order_"]<-"Order"
   indfu <- sqldf("select Scientific_name from indf group by Scientific_name order by Scientific_name")

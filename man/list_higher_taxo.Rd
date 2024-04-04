@@ -25,7 +25,7 @@ taxonomy is sought}
 \item{progress}{If TRUE prints progress bar and messages on the console.}
 }
 \value{
-data frame with added / updated columns \itemize{ \item{"Kingdom"}{Kingdom
+data frame with added / updated columns \describe{ \item{"Kingdom"}{Kingdom
  of the Scientific name} \item{"Phylum"}{Phylum of the Scientific name}
  \item{"Order_"}{Order of the Scientific name} \item{"Family"}{Family of the
  Scientific name} \item{"Genus"}{Genus of the Scientific name} } and also
@@ -43,7 +43,7 @@ name (or just genus name) in the data set. When new data are retrieved, they
 are stored in a local sqlite database, taxo.db, for faster further access.
 }
 \examples{
-\donttest{
+\dontrun{
 mylist <- data.frame("canonical" = c("Abrothrix longipilis",
                                     "Mus longipilis",
                                     "Abrothrix jelskii",
